@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>Slide Web Viewer</title>
+  <link rel="icon" href="icon-32.png">
+  <link rel="stylesheet" href="viewer.css?v=5">
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <script defer src="addresses.js?v=1"></script>
+  <script defer src="viewer.js?v=6"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Slide Web Viewer</h1>
+      <nav aria-label="Page controls">
+        <button id="change" type="button" hidden>Change URL</button>
+        <a id="direct-nav" target="_self" referrerpolicy="no-referrer" hidden>Open on slide</a>
+        <a id="frame-help" href="https://queens-copilot-in-30.pptech79.chatgpt.site/vibe-coding/materials/html-in-powerpoint#blank-viewer" target="_blank" rel="noopener noreferrer" hidden>Blank page?</a>
+        <a id="open-page" target="_blank" rel="noopener noreferrer" hidden>Open in browser</a>
+      </nav>
+    </header>
+    <p id="status" role="status">Connecting to PowerPoint…</p>
+    <div id="editor" hidden>
+      <form>
+        <h2>Choose a page for this slide</h2>
+        <label for="address">Webpage address or iframe embed code</label>
+        <textarea id="address" rows="2" required autocomplete="off" autocapitalize="none" spellcheck="false"
+                  placeholder="Paste a link or embed code" aria-describedby="hint route-hint error"></textarea>
+        <p id="hint">Copy the page’s HTTPS link or its Share → Embed code. Anyone with the deck can read the saved link.</p>
+        <p id="route-hint" aria-live="polite"></p>
+        <details id="request" hidden>
+          <summary>Request direct opening for this website</summary>
+          <p id="request-help">Send this website address to the team that manages your viewer. It covers every page on this host.</p>
+          <label for="request-site">Website to request</label>
+          <input id="request-site" type="text" readonly aria-describedby="request-help">
+          <a id="request-form" target="_blank" rel="noopener noreferrer" hidden>Open the organisation’s request form</a>
+        </details>
+        <details id="samples">
+          <summary>Choose a teaching example</summary>
+          <div class="choices">
+            <button type="button" data-url="https://phet.colorado.edu/sims/html/fraction-matcher/latest/fraction-matcher_en.html">PhET · Fraction Matcher</button>
+            <button type="button" data-url="https://ourworldindata.org/grapher/child-mortality">Our World in Data · Child mortality chart</button>
+            <button type="button" data-url="https://en.wikipedia.org/wiki/Northern_Ireland">Wikipedia · Northern Ireland</button>
+          </div>
+        </details>
+        <p id="error" role="alert"></p>
+        <div class="actions">
+          <button id="save" type="submit">Save to this slide</button>
+          <button id="cancel" type="button" hidden>Cancel</button>
+        </div>
+      </form>
+    </div>
+    <section id="browser-card" aria-labelledby="browser-card-title" hidden>
+      <div>
+        <p id="destination"></p>
+        <h2 id="browser-card-title"></h2>
+        <p id="card-instructions"></p>
+        <div class="actions">
+          <a id="direct-card" target="_self" referrerpolicy="no-referrer" hidden>Open on slide</a>
+          <a id="browser-card-link" target="_blank" rel="noopener noreferrer"></a>
+          <button id="try-frame" type="button">Try in slide</button>
+        </div>
+      </div>
+    </section>
+    <iframe id="page" title="Webpage on this slide" sandbox="allow-scripts allow-forms" referrerpolicy="no-referrer" hidden></iframe>
+    <p id="help" hidden><a href="https://queens-copilot-in-30.pptech79.chatgpt.site/vibe-coding/materials/html-in-powerpoint#reusable" target="_blank" rel="noopener noreferrer">Open setup instructions</a></p>
+    <noscript>Enable JavaScript to use the viewer.</noscript>
+  </main>
+</body>
+</html>

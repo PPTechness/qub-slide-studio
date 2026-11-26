@@ -1,0 +1,53 @@
+:root { color-scheme: light; font: 100%/1.45 "Segoe UI", Roboto, sans-serif; color: #1b283c; background: #f5f7fa; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; }
+main { height: 100vh; height: 100dvh; min-height: 0; display: flex; flex-direction: column; }
+header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .35rem 1rem; padding: .35rem 2.2rem .35rem .8rem; background: white; border-bottom: 1px solid #ccd4df; }
+h1 { font-size: 1rem; margin: 0; }
+h2 { margin: 0 0 1rem; line-height: 1.15; font-size: clamp(1.2rem, 4vw, 1.8rem); }
+nav, .actions { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .85rem; }
+a { color: #174b77; text-underline-offset: .16em; }
+button, input, textarea { font: inherit; }
+button { cursor: pointer; border: 1px solid #657489; border-radius: .35rem; background: white; color: #1b283c; padding: .4rem .7rem; }
+button:disabled { opacity: .65; cursor: wait; }
+:focus-visible { outline: 3px solid #2467a3; outline-offset: 2px; }
+#editor, #browser-card { flex: 1; overflow: auto; padding: clamp(.75rem, 4vw, 2rem); }
+form, #browser-card > div { width: min(100%, 38rem); margin: 0 auto; padding: clamp(.75rem, 3vw, 1.6rem); background: white; border: 1px solid #ccd4df; border-top: 4px solid #a61437; border-radius: .5rem; }
+label { display: block; font-weight: 600; }
+input, textarea { width: 100%; padding: .55rem; margin: .35rem 0 0; border: 1px solid #657489; border-radius: .3rem; }
+#address { resize: vertical; }
+#hint, #error { margin: .5rem 0; }
+#hint { color: #41506a; }
+#error { color: #941830; font-weight: 600; }
+#error:empty, #status:empty { margin: 0; padding: 0; }
+.actions { margin-top: 1rem; }
+#samples { margin: .85rem 0; }
+summary { cursor: pointer; font-weight: 600; color: #174b77; }
+.choices { display: grid; gap: .35rem; margin: .6rem 0; }
+.choices button { text-align: start; }
+#browser-card-link, #direct-card, #direct-nav { display: inline-block; background: #1b283c; color: white; border-radius: .35rem; padding: .45rem .75rem; text-decoration: none; font-weight: 600; }
+#direct-card, #direct-nav { background: #851937; }
+#direct-card:hover, #direct-nav:hover { background: #68132b; text-decoration: underline; }
+#destination { margin: 0 0 .6rem; color: #46546a; font-size: .9rem; overflow-wrap: anywhere; }
+#route-hint { margin: .7rem 0; padding: .55rem .75rem; background: #f1f5fa; border-inline-start: 3px solid #37658a; }
+#route-hint:empty { display: none; }
+#card-instructions { max-width: 52ch; }
+@media (max-width: 32rem) { header { justify-content: flex-start; } nav { gap: .35rem .7rem; } }
+#save { background: #1b283c; color: white; border-color: #1b283c; }
+#status, #help { margin: 0; padding: .35rem .8rem; }
+iframe { width: 100%; flex: 1; min-height: 0; border: 0; background: white; }
+.personal main { display: block; height: auto; max-width: 46rem; margin: 0 auto; padding: 1rem clamp(1rem,4vw,2rem) 3rem; }
+.personal h1 { font-size: clamp(1.8rem,5vw,2.7rem); line-height: 1.1; }
+.personal h2 { font-size: 1.3rem; margin-bottom: .6rem; }
+.personal section { margin-top: 1rem; padding: clamp(1rem,3vw,1.6rem); border: 1px solid #ccd4df; border-radius: .5rem; background: white; }
+.personal form { width: 100%; margin: 1rem 0; padding: 0; border: 0; }
+.personal-entry { display: flex; flex-wrap: wrap; align-items: stretch; gap: .5rem; margin-top: .4rem; }
+.personal-entry input { flex: 1 1 15rem; min-width: 0; margin: 0; }
+.personal fieldset { margin: 1rem 0; padding: .6rem .9rem; border: 1px solid #ccd4df; border-radius: .35rem; min-width: 0; }
+.personal legend { font-weight: 600; }
+#sites label { display: flex; align-items: baseline; gap: .6rem; padding: .25rem 0; overflow-wrap: anywhere; font-weight: 400; }
+#sites input { width: 1rem; margin: 0; flex-shrink: 0; accent-color: #851937; }
+#download { background: #851937; color: white; font-weight: 600; border-color: #851937; }
+#feedback:empty, #problem:empty { display: none; }
+#problem { color: #941830; }

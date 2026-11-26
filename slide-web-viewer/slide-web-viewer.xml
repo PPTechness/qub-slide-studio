@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ContentApp">
+  <Id>ba0c1557-8450-4520-91d8-c5428baa5cd7</Id>
+  <Version>1.1.0.1</Version>
+  <ProviderName>Copilot in 30 workshop</ProviderName>
+  <DefaultLocale>en-GB</DefaultLocale>
+  <DisplayName DefaultValue="Slide Web Viewer"/>
+  <Description DefaultValue="Choose a webpage for each PowerPoint slide and save its HTTPS address with the presentation."/>
+  <IconUrl DefaultValue="https://pptechness.github.io/qub-slide-studio/slide-web-viewer/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://pptechness.github.io/qub-slide-studio/slide-web-viewer/icon-64.png"/>
+  <SupportUrl DefaultValue="https://pptechness.github.io/qub-slide-studio/"/>
+  <AppDomains>
+    <AppDomain>https://www.bbc.co.uk</AppDomain>
+    <AppDomain>https://google.com</AppDomain>
+    <AppDomain>https://www.google.com</AppDomain>
+    <AppDomain>https://phet.colorado.edu</AppDomain>
+    <AppDomain>https://ourworldindata.org</AppDomain>
+    <AppDomain>https://en.wikipedia.org</AppDomain>
+  </AppDomains>
+  <Hosts><Host Name="Presentation"/></Hosts>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://pptechness.github.io/qub-slide-studio/slide-web-viewer/viewer.html?direct=1&amp;site=https://www.bbc.co.uk&amp;site=https://google.com&amp;site=https://www.google.com&amp;site=https://phet.colorado.edu&amp;site=https://ourworldindata.org&amp;site=https://en.wikipedia.org"/>
+    <RequestedWidth>960</RequestedWidth>
+    <RequestedHeight>540</RequestedHeight>
+  </DefaultSettings>
+  <Permissions>Restricted</Permissions>
+  <AllowSnapshot>false</AllowSnapshot>
+</OfficeApp>

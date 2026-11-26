@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer">
+<title>QUB Slide Studio</title><link rel="icon" href="icon-32.png"><link rel="stylesheet" href="pane.css">
+<script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+<script defer src="vendor/fflate-0.8.3.js"></script><script defer src="../slide-web-viewer/addresses.js?v=1"></script><script defer src="slide-package.js"></script><script defer src="library.js"></script><script defer src="pane.js"></script></head>
+<body><main>
+<header><img src="icon-80.png" width="42" height="42" alt=""><div><h1>QUB Slide Studio</h1><p>Teaching tools for PowerPoint</p></div></header>
+<form id="studio">
+<fieldset id="controls"><legend class="visually-hidden">Activity settings</legend>
+<label for="tool">What would you like to add?</label>
+<select id="tool"><option value="web">Webpage or embed</option><option value="qblit">QUBlet sticky notes</option><option value="bingo">Vocabulary bingo</option><option value="file">HTML or add-in XML file</option></select>
+<div id="web" class="settings"><label for="address">Web address or iframe code</label><textarea id="address" rows="3" spellcheck="false" placeholder="Paste an HTTPS link or embed code"></textarea><p class="hint">For Padlet, copy the board’s share link or embed code.</p></div>
+<div id="activity" class="settings" hidden>
+<label for="edition">Teaching material</label><select id="edition"></select>
+<div id="preset"><label id="variant-label" for="variant">Round</label><select id="variant"></select></div>
+<div id="own" hidden><label for="entries" id="entries-label">Your notes</label><p id="entry-hint" class="hint"></p><textarea id="entries" rows="6" aria-describedby="entry-hint"></textarea></div>
+</div>
+<div id="upload" class="settings" hidden><label for="file">Choose your file</label><input id="file" type="file" accept=".html,.htm,.xml">
+<p class="hint">Use a self-contained HTML activity up to 1 MiB, or the XML created for a fixed-page add-in. For an activity with separate images or scripts, paste its hosted URL.</p></div>
+<label for="title">Slide title <span>(optional)</span></label><input id="title" maxlength="90" placeholder="Use the activity name">
+<details id="preview"><summary>Preview activity</summary><div id="preview-area"></div></details>
+</fieldset>
+<div class="action"><button id="insert" type="submit" disabled>Insert new slide</button><p id="status" role="status">Connecting to PowerPoint…</p><p id="error" role="alert"></p></div>
+</form>
+<details id="setup"><summary>Viewer setup</summary><p>The panel inserts slides using Slide Web Viewer. Choose where your viewer was installed.</p>
+<label for="catalog">Viewer installation</label><select id="catalog"><option value="mac">Mac test folder</option><option value="share">Windows shared test folder</option><option value="managed">University-managed add-ins</option></select>
+<div id="share-field" hidden><label for="share">Network folder</label><input id="share" spellcheck="false" placeholder="\\computer\WorkshopAddins"><p class="hint">Use the network path you added to PowerPoint’s trusted catalogues.</p></div>
+<label for="player">Use a personal viewer XML <span>(optional)</span></label><input id="player" type="file" accept=".xml"><p id="using" class="hint"></p><button id="reset-player" type="button" hidden>Use standard viewer</button>
+<a href="../index.html" target="_blank" rel="noopener noreferrer">Pilot setup guide</a></details>
+</main></body></html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personal Slide Web Viewer</title>
+  <link rel="icon" href="icon-32.png"><link rel="stylesheet" href="viewer.css?v=4">
+  <script defer src="personal.js?v=1"></script>
+</head>
+<body class="personal">
+  <main>
+    <p><a id="guide" href="https://queens-copilot-in-30.pptech79.chatgpt.site/vibe-coding/materials/html-in-powerpoint#personal-viewer">PowerPoint toolkit guide</a></p>
+    <h1>Make your own Slide Web Viewer</h1>
+    <p>Choose the websites your personal add-in can open directly in desktop Slide Show. Use this on a computer where you’re allowed to install local add-ins.</p>
+    <section aria-labelledby="previous">
+      <h2 id="previous">Updating a copy you already use?</h2>
+      <p>Open your last personal XML here first. Keeping its identity lets your existing slides use the update. The file is read in this browser.</p>
+      <label for="import">Your previous personal XML</label>
+      <input id="import" type="file" accept=".xml,application/xml,text/xml" disabled>
+    </section>
+    <section aria-labelledby="choose">
+      <h2 id="choose">Choose your websites</h2>
+      <p>Direct opening trusts all pages on each selected website. The viewer’s own host is included. Other sites can still use the embedded view or open in your browser.</p>
+      <form id="add-site">
+        <label for="new-site">Paste a website or page address</label>
+        <div class="personal-entry"><input id="new-site" type="url" required placeholder="https://…" autocomplete="off" spellcheck="false" disabled><button id="add" type="submit" disabled>Add website</button></div>
+      </form>
+      <fieldset><legend>Include in my copy</legend><div id="sites"></div></fieldset>
+      <button id="download" type="button" disabled>Download my viewer XML</button>
+      <p id="feedback" role="status">Loading the viewer template…</p><p id="problem" role="alert"></p>
+    </section>
+    <section aria-labelledby="install"><h2 id="install">Install or update your copy</h2>
+      <p>On Windows, place <strong>slide-web-viewer-personal.xml</strong> in your existing trusted add-ins folder. For updates, replace the previous personal XML. Close all PowerPoint windows, reopen, refresh <strong>Shared Folder</strong> and select <strong>Slide Web Viewer (personal)</strong>. On a new slide, paste a URL and save the deck.</p>
+      <p>Keep the XML with your presentation. Others can use the same personal file where local installation is permitted. Slides inserted from the university-managed viewer keep their original add-in identity.</p>
+    </section>
+    <noscript>Enable JavaScript to prepare the personal XML.</noscript>
+  </main>
+</body>
+</html>
