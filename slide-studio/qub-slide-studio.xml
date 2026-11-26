@@ -8,8 +8,8 @@
   <DefaultLocale>en-GB</DefaultLocale>
   <DisplayName DefaultValue="QUB Slide Studio"/>
   <Description DefaultValue="Choose a webpage or teaching activity and insert it on a new PowerPoint slide."/>
-  <IconUrl DefaultValue="https://pptechness.github.io/qub-slide-studio/slide-studio/icon-32.png"/>
-  <HighResolutionIconUrl DefaultValue="https://pptechness.github.io/qub-slide-studio/slide-studio/icon-80.png"/>
+  <IconUrl DefaultValue="https://pptechness.github.io/qub-slide-studio/slide-studio/ribbon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://pptechness.github.io/qub-slide-studio/slide-studio/ribbon-80.png"/>
   <SupportUrl DefaultValue="https://pptechness.github.io/qub-slide-studio/"/>
   <Hosts><Host Name="Presentation"/></Hosts>
   <Requirements><Sets DefaultMinVersion="1.2"><Set Name="PowerPointApi"/></Sets></Requirements>
@@ -29,7 +29,7 @@
       </Group></OfficeTab></ExtensionPoint>
     </DesktopFormFactor></Host></Hosts>
     <Resources>
-      <bt:Images><bt:Image id="Icon.16" DefaultValue="https://pptechness.github.io/qub-slide-studio/slide-studio/icon-16.png"/><bt:Image id="Icon.32" DefaultValue="https://pptechness.github.io/qub-slide-studio/slide-studio/icon-32.png"/><bt:Image id="Icon.80" DefaultValue="https://pptechness.github.io/qub-slide-studio/slide-studio/icon-80.png"/></bt:Images>
+      <bt:Images><bt:Image id="Icon.16" DefaultValue="https://pptechness.github.io/qub-slide-studio/slide-studio/ribbon-16.png"/><bt:Image id="Icon.32" DefaultValue="https://pptechness.github.io/qub-slide-studio/slide-studio/ribbon-32.png"/><bt:Image id="Icon.80" DefaultValue="https://pptechness.github.io/qub-slide-studio/slide-studio/ribbon-80.png"/></bt:Images>
       <bt:Urls><bt:Url id="Pane.Url" DefaultValue="https://pptechness.github.io/qub-slide-studio/slide-studio/pane.html"/></bt:Urls>
       <bt:ShortStrings><bt:String id="Group.Label" DefaultValue="Teaching tools"/><bt:String id="Pane.Label" DefaultValue="QUB Slide Studio"/></bt:ShortStrings>
       <bt:LongStrings><bt:String id="Pane.Help" DefaultValue="Add a live webpage, bingo card or sticky-note activity to a new slide."/></bt:LongStrings>
