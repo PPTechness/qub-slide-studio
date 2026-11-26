@@ -11,6 +11,7 @@
   <HighResolutionIconUrl DefaultValue="https://pptechness.github.io/qub-slide-studio/slide-web-viewer/icon-64.png"/>
   <SupportUrl DefaultValue="https://pptechness.github.io/qub-slide-studio/"/>
   <AppDomains>
+    <AppDomain>https://queens-copilot-in-30.pptech79.chatgpt.site</AppDomain>
     <AppDomain>https://www.bbc.co.uk</AppDomain>
     <AppDomain>https://google.com</AppDomain>
     <AppDomain>https://www.google.com</AppDomain>
@@ -20,7 +21,7 @@
   </AppDomains>
   <Hosts><Host Name="Presentation"/></Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://pptechness.github.io/qub-slide-studio/slide-web-viewer/viewer.html?direct=1&amp;site=https://www.bbc.co.uk&amp;site=https://google.com&amp;site=https://www.google.com&amp;site=https://phet.colorado.edu&amp;site=https://ourworldindata.org&amp;site=https://en.wikipedia.org"/>
+    <SourceLocation DefaultValue="https://pptechness.github.io/qub-slide-studio/slide-web-viewer/viewer.html?direct=1&amp;site=https://queens-copilot-in-30.pptech79.chatgpt.site&amp;site=https://www.bbc.co.uk&amp;site=https://google.com&amp;site=https://www.google.com&amp;site=https://phet.colorado.edu&amp;site=https://ourworldindata.org&amp;site=https://en.wikipedia.org"/>
     <RequestedWidth>960</RequestedWidth>
     <RequestedHeight>540</RequestedHeight>
   </DefaultSettings>
