@@ -82,9 +82,9 @@ function configureEdition() {
   el('own').hidden=!own;
   el('preset').hidden=own && kind==='bingo';
   el('variant-label').textContent=kind==='bingo'?'Starting round':'Starting view';
-  options(el('variant'),kind==='bingo'?(library.bingo[el('edition').value]?.rounds||[]).map(r=>[r,r]):[['recall','Recall from a clue'],['read','Read notes']]);
-  el('entries-label').textContent=kind==='bingo'?'Terms and clues':'Sticky notes';
-  el('entry-hint').textContent=kind==='bingo'?'Enter at least four different terms, one per line: term | clue.':'Enter one note per line: term | explanation | recall clue. The clue is optional.';
+  options(el('variant'),kind==='bingo'?(library.bingo[el('edition').value]?.rounds||[]).map(r=>[r,r]):[['recall','Recall from a clue'],['read','Read answers']]);
+  el('entries-label').textContent=kind==='bingo'?'Terms and clues':'Flashcards';
+  el('entry-hint').textContent=kind==='bingo'?'Enter at least four different terms, one per line: term | clue.':'Enter one card per line: term | explanation | recall clue. The clue is optional.';
   el('entries').placeholder=kind==='bingo'?'Archive | Where past records are kept':'Archive | A collection of records | Where are past records kept?';
   invalidate();
 }
@@ -93,11 +93,11 @@ function configureTool() {
   const kind=el('tool').value;
   const shortcut=el('tool').selectedOptions[0]?.dataset.page;
   el('shortcut').hidden=!shortcut;
-  el('shortcut').textContent=shortcut ? 'Opens '+new URL(shortcut).hostname+' on your slide. Use Webpage or embed for a specific link.' : '';
+  el('shortcut').textContent=shortcut ? (el('tool').selectedOptions[0].dataset.hint || 'Opens '+new URL(shortcut).hostname+' on your slide. Use Webpage or embed for a specific link.') : '';
   drafts[previousKind]=el('entries').value;el('entries').value=drafts[kind]||'';previousKind=kind;
   el('web').hidden=kind!=='web';el('upload').hidden=kind!=='file';el('activity').hidden=!library[kind];
   if (library[kind]) {
-    options(el('edition'),[...Object.entries(library[kind]).map(([id,row])=>[id,row.label]),['own',kind==='bingo'?'Write my own terms':'Write my own notes']]);
+    options(el('edition'),[...Object.entries(library[kind]).map(([id,row])=>[id,row.label]),['own',kind==='bingo'?'Write my own terms':'Write my own flashcards']]);
     el('edition').value='queens';configureEdition();
   }
   invalidate();
@@ -112,7 +112,7 @@ function rows(kind) {
     if (seen.has(cells[0].toLowerCase())) throw Error('Use a different term on line '+(i+1)+'.');
     seen.add(cells[0].toLowerCase());return cells;
   });
-  if (result.length<(kind==='bingo'?4:1)) throw Error(kind==='bingo'?'Add at least four terms and clues for a bingo card.':'Add at least one sticky note.');
+  if (result.length<(kind==='bingo'?4:1)) throw Error(kind==='bingo'?'Add at least four terms and clues for a bingo card.':'Add at least one flashcard.');
   return result;
 }
 const slidesBase='../vibe-coding/slides/';
@@ -159,7 +159,7 @@ async function activity() {
   }
   const edition=el('edition').value;
   if(edition==='own') {
-    const name=title||(kind==='bingo'?'My vocabulary bingo':'My sticky notes');
+    const name=title||(kind==='bingo'?'My vocabulary bingo':'My flashcards');
     return {html:capped(await customActivity(kind,name)),title:name};
   }
   const base=location.protocol==='https:'?location.href:publishedRoot;
