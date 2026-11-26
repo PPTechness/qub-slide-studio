@@ -35,6 +35,8 @@ let localHtml = '';
 // Only the specific landing pages checked on 26 Nov 2026. A site may offer
 // separate embed URLs. Keep all other paths eligible and allow a manual retry.
 const browserFirstPages = new Map([
+  ['https://www.qub.ac.uk', 'Queen’s University Belfast'],
+  ['https://qub.ac.uk', 'Queen’s University Belfast'],
   ['https://www.bbc.co.uk/sport', 'BBC Sport'],
   ['https://www.bbc.co.uk/news', 'BBC News'],
   ['https://google.com', 'Google'],
@@ -59,7 +61,7 @@ function updateHint() {
   if (offersDirect(url)) {
     message = 'In desktop Slide Show, choose Open on slide to open this site directly.';
   } else if (browserPageName(url)) {
-    message = 'This homepage restricts embedding. Open in browser is available on your slide.';
+    message = 'This homepage may not load in the embedded view. Open in browser is available on your slide.';
   } else if (url) {
     message = 'This page will use the embedded view. If the site blocks embedding, choose Open in browser.';
   }
@@ -110,13 +112,17 @@ function render() {
     element('browser-card-title').textContent = pageName;
     const link = element('browser-card-link');
     link.href = savedUrl;
-    link.textContent = 'Open ' + pageName;
-    link.hidden = canLaunch;
+    const queensHome = pageName === 'Queen’s University Belfast';
+    link.hidden = canLaunch && !queensHome;
+    link.textContent = queensHome ? 'Open Queen’s homepage in browser' : 'Open ' + pageName;
     const destination = element('destination');
     if (destination) destination.textContent = new URL(savedUrl).host;
     const instructions = element('card-instructions');
     if (instructions) {
-      if (canLaunch) instructions.textContent = 'Open this page in the PowerPoint add-in area. The website will replace the viewer controls for this visit.';
+      if (queensHome) {
+        const launchHint = canLaunch ? 'Choose Open on slide to try the homepage directly.' : direct ? 'Start Slide Show and choose Open on slide to try the homepage directly.' : 'Choose Open in browser to visit the homepage.';
+        instructions.textContent = launchHint + ' Queen’s may refuse the request. If you see a 403 error, try the link in your usual browser.';
+      } else if (canLaunch) instructions.textContent = 'Open this page in the PowerPoint add-in area. The website will replace the viewer controls for this visit.';
       else if (direct) instructions.textContent = 'Start Slide Show and choose Open on slide to launch this page directly in desktop PowerPoint.';
       else instructions.textContent = 'This homepage restricts embedding. Open the page in your browser, then return to your slide.';
     }
