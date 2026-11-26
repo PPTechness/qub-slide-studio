@@ -2,7 +2,7 @@
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ContentApp">
   <Id>ba0c1557-8450-4520-91d8-c5428baa5cd7</Id>
-  <Version>1.1.0.1</Version>
+  <Version>1.2.0.0</Version>
   <ProviderName>Copilot in 30 workshop</ProviderName>
   <DefaultLocale>en-GB</DefaultLocale>
   <DisplayName DefaultValue="Slide Web Viewer"/>
@@ -18,10 +18,49 @@
     <AppDomain>https://phet.colorado.edu</AppDomain>
     <AppDomain>https://ourworldindata.org</AppDomain>
     <AppDomain>https://en.wikipedia.org</AppDomain>
+    <AppDomain>https://qub.ac.uk</AppDomain>
+    <AppDomain>https://www.qub.ac.uk</AppDomain>
+    <AppDomain>https://blogs.qub.ac.uk</AppDomain>
+    <AppDomain>https://canvas.qub.ac.uk</AppDomain>
+    <AppDomain>https://qol.qub.ac.uk</AppDomain>
+    <AppDomain>https://virtualexperience.qub.ac.uk</AppDomain>
+    <AppDomain>https://pure.qub.ac.uk</AppDomain>
+    <AppDomain>https://libguides.qub.ac.uk</AppDomain>
+    <AppDomain>https://smartspace.qub.ac.uk</AppDomain>
+    <AppDomain>https://qubsu.org</AppDomain>
+    <AppDomain>https://www.qubsu.org</AppDomain>
+    <AppDomain>https://qub.instructure.com</AppDomain>
+    <AppDomain>https://vevox.app</AppDomain>
+    <AppDomain>https://www.vevox.app</AppDomain>
+    <AppDomain>https://queensuniversitybelfast.vevox.com</AppDomain>
+    <AppDomain>https://ppt.vevox.com</AppDomain>
+    <AppDomain>https://www.vevox.com</AppDomain>
+    <AppDomain>https://bbc.co.uk</AppDomain>
+    <AppDomain>https://bbc.com</AppDomain>
+    <AppDomain>https://www.bbc.com</AppDomain>
+    <AppDomain>https://news.bbc.co.uk</AppDomain>
+    <AppDomain>https://google.co.uk</AppDomain>
+    <AppDomain>https://www.google.co.uk</AppDomain>
+    <AppDomain>https://docs.google.com</AppDomain>
+    <AppDomain>https://drive.google.com</AppDomain>
+    <AppDomain>https://slides.google.com</AppDomain>
+    <AppDomain>https://scholar.google.com</AppDomain>
+    <AppDomain>https://maps.google.com</AppDomain>
+    <AppDomain>https://padlet.com</AppDomain>
+    <AppDomain>https://qub.cloud.panopto.eu</AppDomain>
+    <AppDomain>https://forms.office.com</AppDomain>
+    <AppDomain>https://forms.cloud.microsoft</AppDomain>
+    <AppDomain>https://youtube.com</AppDomain>
+    <AppDomain>https://www.youtube.com</AppDomain>
+    <AppDomain>https://www.youtube-nocookie.com</AppDomain>
+    <AppDomain>https://www.q-su.org</AppDomain>
+    <AppDomain>https://q-su.org</AppDomain>
+    <AppDomain>https://qsis.qub.ac.uk</AppDomain>
+    <AppDomain>https://library.qub.ac.uk</AppDomain>
   </AppDomains>
   <Hosts><Host Name="Presentation"/></Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://pptechness.github.io/qub-slide-studio/slide-web-viewer/viewer.html?direct=1&amp;site=https://queens-copilot-in-30.pptech79.chatgpt.site&amp;site=https://www.bbc.co.uk&amp;site=https://google.com&amp;site=https://www.google.com&amp;site=https://phet.colorado.edu&amp;site=https://ourworldindata.org&amp;site=https://en.wikipedia.org"/>
+    <SourceLocation DefaultValue="https://pptechness.github.io/qub-slide-studio/slide-web-viewer/viewer.html?direct=1&amp;site=https://library.qub.ac.uk&amp;site=https://qsis.qub.ac.uk&amp;site=https://q-su.org&amp;site=https://www.q-su.org&amp;site=https://queens-copilot-in-30.pptech79.chatgpt.site&amp;site=https://www.bbc.co.uk&amp;site=https://google.com&amp;site=https://www.google.com&amp;site=https://phet.colorado.edu&amp;site=https://ourworldindata.org&amp;site=https://en.wikipedia.org&amp;site=https://qub.ac.uk&amp;site=https://www.qub.ac.uk&amp;site=https://blogs.qub.ac.uk&amp;site=https://canvas.qub.ac.uk&amp;site=https://qol.qub.ac.uk&amp;site=https://virtualexperience.qub.ac.uk&amp;site=https://pure.qub.ac.uk&amp;site=https://libguides.qub.ac.uk&amp;site=https://smartspace.qub.ac.uk&amp;site=https://qubsu.org&amp;site=https://www.qubsu.org&amp;site=https://qub.instructure.com&amp;site=https://vevox.app&amp;site=https://www.vevox.app&amp;site=https://queensuniversitybelfast.vevox.com&amp;site=https://ppt.vevox.com&amp;site=https://www.vevox.com&amp;site=https://bbc.co.uk&amp;site=https://bbc.com&amp;site=https://www.bbc.com&amp;site=https://news.bbc.co.uk&amp;site=https://google.co.uk&amp;site=https://www.google.co.uk&amp;site=https://docs.google.com&amp;site=https://drive.google.com&amp;site=https://slides.google.com&amp;site=https://scholar.google.com&amp;site=https://maps.google.com&amp;site=https://padlet.com&amp;site=https://qub.cloud.panopto.eu&amp;site=https://forms.office.com&amp;site=https://forms.cloud.microsoft&amp;site=https://youtube.com&amp;site=https://www.youtube.com&amp;site=https://www.youtube-nocookie.com"/>
     <RequestedWidth>960</RequestedWidth>
     <RequestedHeight>540</RequestedHeight>
   </DefaultSettings>

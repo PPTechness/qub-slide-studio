@@ -3,7 +3,7 @@
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
  xsi:type="TaskPaneApp">
   <Id>1ecd9c21-b64d-43c5-808c-7a88220ceb4b</Id>
-  <Version>1.0.0.1</Version>
+  <Version>1.1.0.0</Version>
   <ProviderName>Copilot in 30 workshop</ProviderName>
   <DefaultLocale>en-GB</DefaultLocale>
   <DisplayName DefaultValue="QUB Slide Studio"/>

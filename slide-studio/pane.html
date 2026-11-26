@@ -1,15 +1,41 @@
 <!doctype html>
 <html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer">
-<title>QUB Slide Studio</title><link rel="icon" href="icon-32.png"><link rel="stylesheet" href="pane.css">
+<title>QUB Slide Studio</title><link rel="icon" href="icon-32.png"><link rel="stylesheet" href="pane.css?v=2">
 <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
-<script defer src="vendor/fflate-0.8.3.js"></script><script defer src="../slide-web-viewer/addresses.js?v=1"></script><script defer src="slide-package.js"></script><script defer src="library.js"></script><script defer src="pane.js"></script></head>
+<script defer src="vendor/fflate-0.8.3.js"></script><script defer src="../slide-web-viewer/addresses.js?v=1"></script><script defer src="slide-package.js?v=2"></script><script defer src="library.js"></script><script defer src="pane.js?v=2"></script></head>
 <body><main>
-<header><img src="icon-80.png" width="42" height="42" alt=""><div><h1>QUB Slide Studio</h1><p>Teaching tools for PowerPoint</p></div></header>
+<header class="masthead"><img src="lightwave.webp" width="1000" height="563" alt=""><h1><span>QUB</span> Slide Studio</h1></header>
 <form id="studio">
 <fieldset id="controls"><legend class="visually-hidden">Activity settings</legend>
 <label for="tool">What would you like to add?</label>
-<select id="tool"><option value="web">Webpage or embed</option><option value="qblit">QUBlet sticky notes</option><option value="bingo">Vocabulary bingo</option><option value="file">HTML or add-in XML file</option></select>
-<div id="web" class="settings"><label for="address">Web address or iframe code</label><textarea id="address" rows="3" spellcheck="false" placeholder="Paste an HTTPS link or embed code"></textarea><p class="hint">For Padlet, copy the board’s share link or embed code.</p></div>
+<select id="tool">
+<optgroup label="Your material">
+<option value="web">Webpage or embed</option>
+<option value="file">HTML or add-in XML file</option>
+</optgroup>
+<optgroup label="Teach and practise">
+<option value="qblit">QUBlet sticky notes</option>
+<option value="bingo">Vocabulary bingo</option>
+<option value="flipbook" data-page="https://queens-copilot-in-30.pptech79.chatgpt.site/vibe-coding/slides/flipbook.html">Page-turning flipbook</option>
+<option value="hotspots" data-page="https://queens-copilot-in-30.pptech79.chatgpt.site/vibe-coding/slides/hotspots.html">Photo hotspots</option>
+<option value="lesson" data-page="https://queens-copilot-in-30.pptech79.chatgpt.site/vibe-coding/slides/lesson.html">Interactive source lesson</option>
+</optgroup>
+<optgroup label="Explore and experiment">
+<option value="timeline" data-page="https://queens-copilot-in-30.pptech79.chatgpt.site/vibe-coding/examples/timeline-explorer.html">Timeline Explorer</option>
+<option value="contrast" data-page="https://queens-copilot-in-30.pptech79.chatgpt.site/vibe-coding/examples/colour-contrast-lab.html">Colour Contrast Lab</option>
+<option value="theatre" data-page="https://queens-copilot-in-30.pptech79.chatgpt.site/vibe-coding/examples/theatre-blocking-studio.html">Theatre Blocking Studio</option>
+</optgroup>
+<optgroup label="Queen’s and learning services">
+<option value="queens" data-page="https://www.qub.ac.uk/">Queen’s University Belfast</option>
+<option value="su" data-page="https://www.qubsu.org/">Queen’s Students’ Union</option>
+<option value="union" data-page="https://blogs.qub.ac.uk/studentsunion/">Students’ Union blog</option>
+<option value="canvas" data-page="https://canvas.qub.ac.uk/">Queen’s Canvas</option>
+<option value="vevox" data-page="https://vevox.app/">Join a Vevox session</option>
+<option value="panopto" data-page="https://qub.cloud.panopto.eu/">Queen’s Panopto</option>
+</optgroup>
+</select>
+<p id="shortcut" class="hint" hidden></p>
+<div id="web" class="settings"><label for="address">Web address or iframe code</label><textarea id="address" rows="3" spellcheck="false" placeholder="Paste an HTTPS link or embed code"></textarea><p class="hint">Paste a teaching page, Canvas file link, Vevox session link or Padlet embed code.</p></div>
 <div id="activity" class="settings" hidden>
 <label for="edition">Teaching material</label><select id="edition"></select>
 <div id="preset"><label id="variant-label" for="variant">Round</label><select id="variant"></select></div>

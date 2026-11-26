@@ -2,7 +2,7 @@
 const el = id => document.getElementById(id);
 const {pageAddress,addressFromEntry} = SlideAddresses;
 const {parse,nodes} = StudioPackage;
-const standard = {id:'ba0c1557-8450-4520-91d8-c5428baa5cd7',version:'1.1.0.1',name:'Slide Web Viewer'};
+const standard = {id:'ba0c1557-8450-4520-91d8-c5428baa5cd7',version:'1.2.0.0',name:'Slide Web Viewer'};
 const officeNS = 'http://schemas.microsoft.com/office/appforoffice/1.1';
 const library = StudioLibrary;
 const limit = 1024*1024;
@@ -24,7 +24,7 @@ function showSetup() {
   el('reset-player').hidden=viewer.id===standard.id;
 }
 const saved=preferences();
-if (!managed && saved.viewer && /^[\da-f-]{36}$/i.test(saved.viewer.id) && /^\d+(\.\d+){3}$/.test(saved.viewer.version)) viewer=saved.viewer;
+if (!managed && saved.viewer && saved.viewer.id!==standard.id && /^[\da-f-]{36}$/i.test(saved.viewer.id) && /^\d+(\.\d+){3}$/.test(saved.viewer.version)) viewer=saved.viewer;
 el('share').value=saved.share || '';
 function catalogRef() {
   const catalog=managed?'managed':el('catalog').value;
@@ -91,6 +91,9 @@ function configureEdition() {
 const drafts={};let previousKind='web';
 function configureTool() {
   const kind=el('tool').value;
+  const shortcut=el('tool').selectedOptions[0]?.dataset.page;
+  el('shortcut').hidden=!shortcut;
+  el('shortcut').textContent=shortcut ? 'Opens '+new URL(shortcut).hostname+' on your slide. Use Webpage or embed for a specific link.' : '';
   drafts[previousKind]=el('entries').value;el('entries').value=drafts[kind]||'';previousKind=kind;
   el('web').hidden=kind!=='web';el('upload').hidden=kind!=='file';el('activity').hidden=!library[kind];
   if (library[kind]) {
@@ -136,6 +139,8 @@ function capped(html) {
 }
 async function activity() {
   const kind=el('tool').value,title=el('title').value.trim();
+  const option=el('tool').selectedOptions[0];
+  if (option.dataset.page) return {url:option.dataset.page,title:title||option.textContent};
   if (kind==='web') {
     const url=addressFromEntry(el('address').value);
     if (!url) throw Error('Paste an HTTPS page address or a single iframe with an HTTPS source.');

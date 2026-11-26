@@ -23,12 +23,31 @@
     const canvas = document.createElement('canvas');
     canvas.width=960; canvas.height=540;
     const g=canvas.getContext('2d');
-    g.fillStyle='#f4f6f9';g.fillRect(0,0,960,540);
-    g.fillStyle='#911337';g.fillRect(0,0,14,540);
+    g.fillStyle='#ffffff';g.fillRect(0,0,960,540);
+    g.fillStyle='#5044c7';g.fillRect(0,0,14,540);
     g.fillStyle='#1c3048';g.font='600 26px sans-serif';g.fillText('QUB Slide Studio',48,72);
     g.font='600 42px sans-serif';g.fillText(title,48,245,850);
     g.font='24px sans-serif';g.fillText('Start Slide Show with Slide Web Viewer available.',48,304,850);
     return Uint8Array.from(atob(canvas.toDataURL('image/png').split(',')[1]),c=>c.charCodeAt(0));
+  }
+  function addEndShowAction(slide, footer) {
+    // Use a native slide action so presenting does not depend on the webpage.
+    const button=footer.cloneNode(true);
+    const width=Number(nodes(footer,'ext')[0].getAttribute('cx'));
+    const buttonWidth=Math.round(width*0.15);
+    nodes(footer,'off')[0].setAttribute('x',String(buttonWidth));
+    nodes(footer,'ext')[0].setAttribute('cx',String(width-buttonWidth));
+    nodes(button,'ext')[0].setAttribute('cx',String(buttonWidth));
+    const identity=nodes(button,'cNvPr')[0];
+    identity.setAttribute('id','6');
+    identity.setAttribute('name','End slide show');
+    const action=nodes(button,'hlinkClick')[0];
+    action.setAttributeNS('http://schemas.openxmlformats.org/officeDocument/2006/relationships','r:id','');
+    action.setAttribute('action','ppaction://hlinkshowjump?jump=endshow');
+    action.setAttribute('tooltip','End slide show');
+    nodes(button,'pPr')[0].setAttribute('algn','ctr');
+    nodes(button,'t')[0].textContent='End show';
+    footer.after(button);
   }
   async function build(activity, catalog, viewer) {
     if (!template) {
@@ -56,11 +75,15 @@
     const text = activity.title + (activity.url?' · Open in browser':'');
     nodes(slide,'t')[0].textContent=text;
     const link=nodes(rel,'Relationship').find(item=>item.getAttribute('Type').endsWith('/hyperlink'));
+    const footer=nodes(slide,'sp').find(shape=>nodes(shape,'cNvPr')[0]?.getAttribute('id')==='5');
+    nodes(nodes(footer,'spPr')[0],'srgbClr')[0].setAttribute('val','FFFFFF');
+    nodes(nodes(footer,'rPr')[0],'srgbClr')[0].setAttribute('val','253351');
+    addEndShowAction(slide,footer);
     if (activity.url) link.setAttribute('Target',activity.url);
     else {
       link.remove();
-      nodes(slide,'hlinkClick').forEach(item=>item.remove());
-      nodes(slide,'rPr').forEach(item=>item.removeAttribute('u'));
+      nodes(footer,'hlinkClick').forEach(item=>item.remove());
+      nodes(footer,'rPr').forEach(item=>item.removeAttribute('u'));
     }
     const serializer=new XMLSerializer();
     for (const [name,xml] of [[extPath,ext],[slidePath,slide],[relPath,rel]]) files[name]=enc.encode(serializer.serializeToString(xml));

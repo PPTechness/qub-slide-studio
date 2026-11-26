@@ -13,7 +13,7 @@ button { cursor: pointer; border: 1px solid #657489; border-radius: .35rem; back
 button:disabled { opacity: .65; cursor: wait; }
 :focus-visible { outline: 3px solid #2467a3; outline-offset: 2px; }
 #editor, #browser-card { flex: 1; overflow: auto; padding: clamp(.75rem, 4vw, 2rem); }
-form, #browser-card > div { width: min(100%, 38rem); margin: 0 auto; padding: clamp(.75rem, 3vw, 1.6rem); background: white; border: 1px solid #ccd4df; border-top: 4px solid #a61437; border-radius: .5rem; }
+form, #browser-card > div { width: min(100%, 38rem); margin: 0 auto; padding: clamp(.75rem, 3vw, 1.6rem); background: white; border: 1px solid #ccd4df; border-top: 4px solid #5346b5; border-radius: .5rem; }
 label { display: block; font-weight: 600; }
 input, textarea { width: 100%; padding: .55rem; margin: .35rem 0 0; border: 1px solid #657489; border-radius: .3rem; }
 #address { resize: vertical; }
@@ -51,3 +51,16 @@ iframe { width: 100%; flex: 1; min-height: 0; border: 0; background: white; }
 #download { background: #851937; color: white; font-weight: 600; border-color: #851937; }
 #feedback:empty, #problem:empty { display: none; }
 #problem { color: #941830; }
+
+/* Keep the teaching page full width, with colour at the viewer edges. */
+.viewer { background:#fff; color:#18233e; }
+.viewer header { position:relative; isolation:isolate; background:#fff; padding:.35rem 1rem; min-height:2.25rem; border-bottom:1px solid #d5d9e3; }
+.viewer header::after { content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background:linear-gradient(90deg,#ff9647,#f24aa7,#6354e0,#2ac6ee,#a6e966); }
+.viewer h1 { letter-spacing:-.035em; }
+.viewer #editor,.viewer #browser-card { background:#f7f7fa; }
+.viewer form,.viewer #browser-card>div { position:relative; background:white; border:1px solid #d4d8e4; border-radius:1rem; box-shadow:0 5px 22px #17264a0e; overflow:hidden; padding-top:1.45rem; }
+.viewer form::before,.viewer #browser-card>div::before { content:""; position:absolute; inset:0 0 auto; height:6px; background:url(../slide-studio/lightwave.webp) center 61%/cover; }
+.viewer button,.viewer textarea,.viewer input { border-radius:.55rem; }
+.viewer #save { background:#fff; color:#252d5a; border:2px solid #5953ac; }
+.viewer a { color:#36457b; }
+.viewer #status:empty { display:none; }
