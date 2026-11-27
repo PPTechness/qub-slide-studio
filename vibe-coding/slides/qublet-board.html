@@ -6,6 +6,7 @@
 .note a{display:inline-block;color:#31305e;text-decoration:underline;overflow-wrap:anywhere;font-weight:650}.note iframe{display:block;width:100%;height:320px;margin:.65rem 0;border:1px solid #9389a7;border-radius:12px;background:white}#previewSite{width:auto}dialog{max-height:90vh;overflow:auto}@media print{.note iframe{display:none}}
 #composer{width:min(30rem,calc(100% - 1rem));max-height:calc(100dvh - 1rem);padding:clamp(.6rem,2vh,1.25rem)}
 #composer h2{margin:0}#composer textarea{min-height:3rem;height:clamp(3rem,16vh,7rem)}#noteOptions{margin:0;padding:.5rem}#noteOptions summary{cursor:pointer}#composer #form{display:grid;grid-template-rows:auto minmax(0,1fr) auto;max-height:calc(100dvh - 4rem)}#composer .note-fields{overflow:auto;min-height:0}#composer .note-actions{background:white;padding:.4rem 0}
+html.in-slide main{padding:clamp(8px,1.3vw,16px)}html.in-slide .intro{padding:clamp(12px,1.5vw,22px)}html.in-slide #title{font-size:clamp(23px,2.8vw,36px)}html.in-slide .intro>*+*{margin-top:.5rem}
 </style></head><body><main><header><div class="brand">Sticky-note board</div><div class="row actions"><button id="new">New board</button><label class="filebtn">Open board<input type="file" id="openFile" accept=".html,text/html"></label><button id="present">Present full screen</button></div></header>
 <section class="board" id="board"><div class="intro"><div class="row eyebrow">QUBlet Lab <span>Lecturer board</span></div><h1 id="title"></h1><p id="prompt"></p><div class="bar"><button class="primary" id="add">+ Add a note</button><span id="count"></span></div></div><div class="canvas"><div id="cards"></div></div></section>
 <div id="notice" role="status" aria-live="polite"></div>
@@ -245,6 +246,7 @@ function resourceChanged(){
  $('previewSite').disabled=!sitePreview(url);if($('previewSite').disabled)$('previewSite').checked=false
 }
 $('resource').oninput=resourceChanged;
+if(window.parent!==window)document.documentElement.classList.add('in-slide');
 function compose(i,topic=0,text=''){edited=i;const n=i===null?{body:text,topic,colour:'Honey'}:board.notes[i];$('group').replaceChildren(...board.topics.map((t,j)=>new Option(t,j)));$('resource').value=n.url||'';$('linkText').value=n.linkText||'';resourceChanged();$('previewSite').checked=!!n.preview&&!$('previewSite').disabled;$('group').value=n.topic;$('bodyText').value=n.body;$('colour').value=n.colour;$('formTitle').textContent=i===null?'Add a note':'Edit or move note';$('noteOptions').open=false;$('composer').showModal();$('composer').scrollTop=0;$('bodyText').focus()}
 $('add').onclick=()=>compose(null);$('cancel').onclick=()=>$('composer').close();
 $('form').onsubmit=e=>{e.preventDefault();const body=$('bodyText').value.trim();if(!body)return;const n={body,colour:$('colour').value,topic:Number($('group').value)};const url=resourceURL($('resource').value.trim());if(url){n.url=url.href;n.linkText=$('linkText').value.trim();n.preview=!!sitePreview(url)&&$('previewSite').checked}const savedIndex=edited===null?board.notes.length:edited;board.notes[savedIndex]=n;$('composer').close();settings();change();$('board-note-'+savedIndex).querySelector('.row button').focus()};

@@ -65,4 +65,7 @@ iframe { width: 100%; flex: 1; min-height: 0; border: 0; background: white; }
 .viewer a { color:#36457b; }
 .viewer #status:empty { display:none; }
 
-.viewer #page { width:calc(100% - 2 * var(--gutter)); --gutter:clamp(3px,1vmin,12px); margin:var(--gutter) auto; border:1px solid #ccd4df; border-radius:8px; }
+#viewport { position:relative; flex:1; min-height:0; margin:clamp(3px,1vmin,10px); overflow:hidden; border:1px solid #ccd4df; border-radius:8px; background:white; }
+#viewport #page { position:absolute; inset:0 auto auto 0; width:var(--activity-size,100%); height:var(--activity-size,100%); transform:scale(var(--activity-scale,1)); transform-origin:top left; }
+#scale-control { font-size:.875rem; white-space:nowrap; }
+#scale { font:inherit; color:inherit; background:white; border:1px solid #a2acc0; border-radius:.35rem; padding:.2rem; }

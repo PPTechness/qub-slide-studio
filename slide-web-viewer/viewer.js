@@ -88,12 +88,25 @@ function directLink(id, visible) {
   else link.removeAttribute('href');
 }
 
+const viewport = element('viewport');
+const scale = element('scale');
+function sizeActivity() {
+  const factor = presenting || preview ? Number(scale.value) : 1;
+  viewport.style.setProperty('--activity-scale', factor);
+  viewport.style.setProperty('--activity-size', (100 / factor) + '%');
+  element('scale-control').hidden = viewport.hidden || !(presenting || preview);
+}
+scale.addEventListener('change', sizeActivity);
+
 function render() {
+  viewport.hidden = !localHtml && (!savedUrl || (editable && editing) ||
+    (browserCard && !tryFrame && Boolean(browserPageName(savedUrl))));
+  sizeActivity();
   if (localHtml) {
     editor.hidden = true;
     change.hidden = true;
     openPage.hidden = true;
-    if (!frame.isConnected) element('help').before(frame);
+    if (!frame.isConnected) viewport.append(frame);
     if (!frame.hasAttribute('srcdoc')) frame.srcdoc = localHtml;
     frame.hidden = false;
     return;
@@ -135,7 +148,7 @@ function render() {
   } else {
     if (frame.getAttribute('src') !== savedUrl) frame.src = savedUrl;
     frame.hidden = false;
-    if (!frame.isConnected) element('help').before(frame);
+    if (!frame.isConnected) viewport.append(frame);
   }
   change.hidden = !editable || showForm;
   cancel.hidden = !savedUrl;

@@ -6,16 +6,17 @@
   <meta name="referrer" content="no-referrer">
   <title>Slide Web Viewer</title>
   <link rel="icon" href="icon-32.png">
-  <link rel="stylesheet" href="viewer.css?v=8">
+  <link rel="stylesheet" href="viewer.css?v=9">
   <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
   <script defer src="addresses.js?v=1"></script>
-  <script defer src="viewer.js?v=7"></script>
+  <script defer src="viewer.js?v=9"></script>
 </head>
 <body class="viewer">
   <main>
     <header>
       <h1>Slide Web Viewer</h1>
       <nav aria-label="Page controls">
+        <label id="scale-control" hidden>Zoom <select id="scale" aria-label="Activity zoom"><option value="0.6">60%</option><option value="0.75" selected>75%</option><option value="1">100%</option></select></label>
         <button id="change" type="button" hidden>Change URL</button>
         <a id="direct-nav" target="_self" referrerpolicy="no-referrer" hidden>Open on slide</a>
         <a id="frame-help" href="https://queens-copilot-in-30.pptech79.chatgpt.site/vibe-coding/materials/html-in-powerpoint#blank-viewer" target="_blank" rel="noopener noreferrer" hidden>Blank page?</a>
@@ -65,7 +66,9 @@
         </div>
       </div>
     </section>
-    <iframe id="page" title="Webpage on this slide" sandbox="allow-scripts allow-forms" referrerpolicy="no-referrer" hidden></iframe>
+    <div id="viewport" hidden>
+      <iframe id="page" title="Webpage on this slide" sandbox="allow-scripts allow-forms" referrerpolicy="no-referrer" hidden></iframe>
+    </div>
     <p id="help" hidden><a href="https://queens-copilot-in-30.pptech79.chatgpt.site/vibe-coding/materials/html-in-powerpoint#reusable" target="_blank" rel="noopener noreferrer">Open setup instructions</a></p>
     <noscript>Enable JavaScript to use the viewer.</noscript>
   </main>
